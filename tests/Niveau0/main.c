@@ -8,6 +8,8 @@
 
 #include "sdl2-light.h"
 
+//message pertinent pour tester: à retirer le 02/04/2021
+
 
 /**
  * \brief Largeur de l'écran
