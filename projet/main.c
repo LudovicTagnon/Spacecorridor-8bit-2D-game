@@ -64,10 +64,8 @@
 
 struct textures_s{
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
-    /* A COMPLETER */
+    SDL_Texture* sprite;
 };
-
-
 /**
  * \brief Type qui correspond aux textures du jeu
 */
@@ -75,14 +73,32 @@ struct textures_s{
 typedef struct textures_s textures_t;
 
 
+
+
+/**
+ * \brief Représentation des parametres du sprite du jeu
+*/
+struct sprite_s{
+    int x;
+    int y;
+    int h;
+    int w;
+
+};
+/**
+ * \brief Type qui correspond au sprite
+*/
+typedef struct sprite_s sprite_t;
+
+
+
+
 /**
  * \brief Représentation du monde du jeu
 */
-
 struct world_s{
-    /*
-      A COMPLETER
-     */
+
+    sprite_t vaisseau;
     
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 
@@ -95,6 +111,20 @@ struct world_s{
 typedef struct world_s world_t;
 
 
+/*===================== FONCTIONS ========================*/
+
+
+
+
+/**
+ * \brief
+ * \param
+ * \param
+*/
+void print_sprite(sprite_t *sprite){
+    printf("Sprite: Coordonees: (x=%i, y=%i) ; Hauteur = %i ; Largeur = %i\n\n", sprite->x, sprite->y, sprite->h, sprite->w);
+}
+
 
 
 
@@ -102,26 +132,34 @@ typedef struct world_s world_t;
  * \brief La fonction initialise les données du monde du jeu
  * \param world les données du monde
  */
-
-
 void init_data(world_t * world){
-    
+
+    world->vaisseau.x = (SCREEN_WIDTH-SHIP_SIZE)/2;
+    world->vaisseau.y = SCREEN_HEIGHT-SHIP_SIZE;
+    world->vaisseau.w = SHIP_SIZE;
+    world->vaisseau.h = SHIP_SIZE;
+
     //on n'est pas à la fin du jeu
     world->gameover = 0;
     
 }
 
 
+
+
+
+
 /**
  * \brief La fonction nettoie les données du monde
  * \param world les données du monde
  */
-
-
 void clean_data(world_t *world){
     /* utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */
     
 }
+
+
+
 
 
 
@@ -137,6 +175,10 @@ int is_game_over(world_t *world){
 
 
 
+
+
+
+
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
  * \param les données du monde
@@ -145,6 +187,9 @@ int is_game_over(world_t *world){
 void update_data(world_t *world){
     /* A COMPLETER */
 }
+
+
+
 
 
 
@@ -163,16 +208,35 @@ void handle_events(SDL_Event *event,world_t *world){
             //On indique la fin du jeu
             world->gameover = 1;
         }
-       
-         //si une touche est appuyée
-         if(event->type == SDL_KEYDOWN){
-             //si la touche appuyée est 'D'
-             if(event->key.keysym.sym == SDLK_d){
-                 printf("La touche D est appuyée\n");
-              }
-         }
+
+        //si une touche est appuyée
+        if(event->type == SDL_KEYDOWN){
+            //si la touche appuyée est 'fleche droite'
+            if(event->key.keysym.sym == SDLK_RIGHT){
+                world->vaisseau.x+=MOVING_STEP;
+            }
+            else if(event->key.keysym.sym == SDLK_UP){
+                world->vaisseau.y-=MOVING_STEP;
+            }
+            else if(event->key.keysym.sym == SDLK_LEFT){
+                world->vaisseau.x-=MOVING_STEP;
+            }
+            else if(event->key.keysym.sym == SDLK_DOWN){
+                world->vaisseau.y+=MOVING_STEP;
+            }
+            else if(event->key.keysym.sym == SDLK_ESCAPE){
+                world->gameover=1;
+            }
+
+            //print_sprite(&world->vaisseau);
+
+        }
     }
 }
+
+
+
+
 
 
 /**
@@ -182,8 +246,12 @@ void handle_events(SDL_Event *event,world_t *world){
 
 void clean_textures(textures_t *textures){
     clean_texture(textures->background);
-    /* A COMPLETER */
+
+    clean_texture(textures->sprite);
 }
+
+
+
 
 
 
@@ -192,14 +260,28 @@ void clean_textures(textures_t *textures){
  * \param screen la surface correspondant à l'écran de jeu
  * \param textures les textures du jeu
 */
-
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
-    textures->background = load_image( "ressources/background.bmp",renderer);
-    
-    /* A COMPLETER */
-
+    textures->background = load_image( "ressources/space-background.bmp",renderer);
+    textures->sprite = load_image( "ressources/spaceship.bmp",renderer);
     
 }
+
+
+
+/**
+ * \brief La fonction initialise les parametres nécessaires à l'affichage graphique du sprite
+ * \param sprite: Le sprite
+ * \param x,y: la position du sprite
+ * \param w,h: taille du sprite
+*/
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
+    sprite->x=x;
+    sprite->y=y;
+    sprite->h=h;
+    sprite->w=w;
+}
+
+
 
 
 /**
@@ -207,10 +289,24 @@ void  init_textures(SDL_Renderer *renderer, textures_t *textures){
  * \param renderer le renderer
  * \param texture la texture liée au fond
 */
-
 void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
     if(texture != NULL){
       apply_texture(texture, renderer, 0, 0);
+    }
+}
+
+
+
+
+/**
+ * \brief La fonction applique la texture du sprite sur le renderer
+ * \param renderer le renderer
+ * \param texture la texture liée au fond
+* \param sprite le sprite a afficher
+*/
+void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite){
+    if(texture != NULL){
+        apply_texture(texture, renderer, sprite->x, sprite->y);
     }
 }
 
@@ -224,19 +320,22 @@ void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
  * \param world les données du monde
  * \param textures les textures
  */
-
 void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures){
     
     //on vide le renderer
     clear_renderer(renderer);
     
-    //application des textures dans le renderer
+    //application des textures du background dans le renderer
     apply_background(renderer, textures->background);
-    /* A COMPLETER */
-    
+
+    //application de la texture du sprite dans le renderer
+    apply_sprite(renderer, textures->sprite, &world->vaisseau);
+
     // on met à jour l'écran
     update_screen(renderer);
 }
+
+
 
 
 
@@ -247,12 +346,14 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 * \param textures les textures
 * \param world le monde
 */
-
 void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, world_t * world){
     clean_data(world);
     clean_textures(textures);
     clean_sdl(renderer,window);
 }
+
+
+
 
 
 
@@ -263,12 +364,16 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
  * \param textures les textures
  * \param world le monde
  */
-
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world){
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
     init_data(world);
     init_textures(*renderer,textures);
 }
+
+
+
+/*=========================== MAIN ==============================*/
+
 
 
 /**
