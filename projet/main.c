@@ -65,6 +65,7 @@
 struct textures_s{
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
     SDL_Texture* sprite;
+    SDL_Texture* finish_line;
 };
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -99,8 +100,9 @@ typedef struct sprite_s sprite_t;
 struct world_s{
 
     sprite_t vaisseau;
-    
+    sprite_t finish_line;
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
+    int vy; /*! Vitesse de deplacement de la ligne d'arrivee et des meteorites*/
 
 };
 
@@ -139,6 +141,12 @@ void init_data(world_t * world){
     world->vaisseau.w = SHIP_SIZE;
     world->vaisseau.h = SHIP_SIZE;
 
+    world->finish_line.y = FINISH_LINE_HEIGHT;
+    world->finish_line.x = 0;
+    world->finish_line.h = FINISH_LINE_HEIGHT;
+    world->finish_line.w = SCREEN_WIDTH;
+
+    world->vy=INITIAL_SPEED;
     //on n'est pas à la fin du jeu
     world->gameover = 0;
     
@@ -213,16 +221,18 @@ void handle_events(SDL_Event *event,world_t *world){
         if(event->type == SDL_KEYDOWN){
             //si la touche appuyée est 'fleche droite'
             if(event->key.keysym.sym == SDLK_RIGHT){
-                world->vaisseau.x+=MOVING_STEP;
+                world->vaisseau.x += MOVING_STEP;
             }
             else if(event->key.keysym.sym == SDLK_UP){
-                world->vaisseau.y-=MOVING_STEP;
+                world->vaisseau.y -= MOVING_STEP;
+                world->finish_line.y += world->vy;
             }
             else if(event->key.keysym.sym == SDLK_LEFT){
-                world->vaisseau.x-=MOVING_STEP;
+                world->vaisseau.x -= MOVING_STEP;
             }
             else if(event->key.keysym.sym == SDLK_DOWN){
-                world->vaisseau.y+=MOVING_STEP;
+                world->vaisseau.y += MOVING_STEP;
+                world->finish_line.y -= world->vy;
             }
             else if(event->key.keysym.sym == SDLK_ESCAPE){
                 world->gameover=1;
@@ -246,7 +256,7 @@ void handle_events(SDL_Event *event,world_t *world){
 
 void clean_textures(textures_t *textures){
     clean_texture(textures->background);
-
+    clean_texture(textures->finish_line);
     clean_texture(textures->sprite);
 }
 
@@ -263,7 +273,7 @@ void clean_textures(textures_t *textures){
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
     textures->sprite = load_image( "ressources/spaceship.bmp",renderer);
-    
+    textures->finish_line = load_image( "ressources/finish_line.bmp",renderer);
 }
 
 
@@ -330,6 +340,9 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 
     //application de la texture du sprite dans le renderer
     apply_sprite(renderer, textures->sprite, &world->vaisseau);
+
+    //application de la texture de la finish_line dans le renderer
+    apply_sprite(renderer, textures->finish_line, &world->finish_line);
 
     // on met à jour l'écran
     update_screen(renderer);

@@ -8,7 +8,9 @@
 
 #include "sdl2-light.h"
 
-//message pertinent pour tester: à retirer le 02/04/2021
+//message pertinent pour tester: à retirer le 02/04/2021 (matheo)
+
+//message pertinent pour tester: à retirer le 02/04/2021 (ludovic)
 
 
 /**
@@ -145,7 +147,7 @@ void handle_events(SDL_Event *event,world_t *world){
        
          //si une touche est appuyée
          if(event->type == SDL_KEYDOWN){
-             //si la touche appuyée est 'D'
+             //si la touche appuyée est 'fleche droite'
              if(event->key.keysym.sym == SDLK_RIGHT){
                  world->x+=MOVING_STEP;
               }
@@ -271,6 +273,7 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
 
 int main( int argc, char* args[] )
 {
+    // Creation des variables utiles au jeu
     SDL_Event event;
     world_t world;
     textures_t textures;
