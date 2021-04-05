@@ -119,6 +119,21 @@ typedef struct world_s world_t;
 
 
 /**
+ * \brief La fonction initialise les parametres nécessaires à l'affichage graphique du sprite
+ * \param sprite: Le sprite
+ * \param x,y: la position du sprite
+ * \param w,h: taille du sprite
+*/
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
+    sprite->x=x;
+    sprite->y=y;
+    sprite->h=h;
+    sprite->w=w;
+}
+
+
+
+/**
  * \brief
  * \param
  * \param
@@ -136,15 +151,10 @@ void print_sprite(sprite_t *sprite){
  */
 void init_data(world_t * world){
 
-    world->vaisseau.x = (SCREEN_WIDTH-SHIP_SIZE)/2;
-    world->vaisseau.y = SCREEN_HEIGHT-SHIP_SIZE;
-    world->vaisseau.w = SHIP_SIZE;
-    world->vaisseau.h = SHIP_SIZE;
 
-    world->finish_line.y = FINISH_LINE_HEIGHT;
-    world->finish_line.x = 0;
-    world->finish_line.h = FINISH_LINE_HEIGHT;
-    world->finish_line.w = SCREEN_WIDTH;
+    init_sprite(&world->vaisseau, (SCREEN_WIDTH-SHIP_SIZE)/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
+    init_sprite(&world->finish_line, 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, FINISH_LINE_HEIGHT);
+
 
     world->vy=INITIAL_SPEED;
     //on n'est pas à la fin du jeu
@@ -193,7 +203,7 @@ int is_game_over(world_t *world){
  */
 
 void update_data(world_t *world){
-    /* A COMPLETER */
+    world->finish_line.y += world->vy;
 }
 
 
@@ -225,14 +235,12 @@ void handle_events(SDL_Event *event,world_t *world){
             }
             else if(event->key.keysym.sym == SDLK_UP){
                 world->vaisseau.y -= MOVING_STEP;
-                world->finish_line.y += world->vy;
             }
             else if(event->key.keysym.sym == SDLK_LEFT){
                 world->vaisseau.x -= MOVING_STEP;
             }
             else if(event->key.keysym.sym == SDLK_DOWN){
                 world->vaisseau.y += MOVING_STEP;
-                world->finish_line.y -= world->vy;
             }
             else if(event->key.keysym.sym == SDLK_ESCAPE){
                 world->gameover=1;
@@ -274,21 +282,6 @@ void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
     textures->sprite = load_image( "ressources/spaceship.bmp",renderer);
     textures->finish_line = load_image( "ressources/finish_line.bmp",renderer);
-}
-
-
-
-/**
- * \brief La fonction initialise les parametres nécessaires à l'affichage graphique du sprite
- * \param sprite: Le sprite
- * \param x,y: la position du sprite
- * \param w,h: taille du sprite
-*/
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
-    sprite->x=x;
-    sprite->y=y;
-    sprite->h=h;
-    sprite->w=w;
 }
 
 
