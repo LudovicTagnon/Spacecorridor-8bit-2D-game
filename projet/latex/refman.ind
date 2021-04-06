@@ -1,0 +1,89 @@
+\begin{theindex}
+
+  \item {apply\_texture}
+    \subitem {sdl2-\/light.c}, \hyperpage{8}
+    \subitem {sdl2-\/light.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {background}
+    \subitem {textures\_s}, \hyperpage{6}
+
+  \indexspace
+
+  \item {clean\_sdl}
+    \subitem {sdl2-\/light.c}, \hyperpage{8}
+    \subitem {sdl2-\/light.h}, \hyperpage{12}
+  \item {clean\_texture}
+    \subitem {sdl2-\/light.c}, \hyperpage{9}
+    \subitem {sdl2-\/light.h}, \hyperpage{12}
+  \item {clear\_renderer}
+    \subitem {sdl2-\/light.c}, \hyperpage{9}
+    \subitem {sdl2-\/light.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {gameover}
+    \subitem {world\_s}, \hyperpage{6}
+
+  \indexspace
+
+  \item {init\_sdl}
+    \subitem {sdl2-\/light.c}, \hyperpage{9}
+    \subitem {sdl2-\/light.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {load\_image}
+    \subitem {sdl2-\/light.c}, \hyperpage{10}
+    \subitem {sdl2-\/light.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {main.c}, \hyperpage{7}
+
+  \indexspace
+
+  \item {pause}
+    \subitem {sdl2-\/light.c}, \hyperpage{10}
+    \subitem {sdl2-\/light.h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {sdl2-\/light.c}, \hyperpage{7}
+    \subitem {apply\_texture}, \hyperpage{8}
+    \subitem {clean\_sdl}, \hyperpage{8}
+    \subitem {clean\_texture}, \hyperpage{9}
+    \subitem {clear\_renderer}, \hyperpage{9}
+    \subitem {init\_sdl}, \hyperpage{9}
+    \subitem {load\_image}, \hyperpage{10}
+    \subitem {pause}, \hyperpage{10}
+    \subitem {update\_screen}, \hyperpage{10}
+  \item {sdl2-\/light.h}, \hyperpage{11}
+    \subitem {apply\_texture}, \hyperpage{12}
+    \subitem {clean\_sdl}, \hyperpage{12}
+    \subitem {clean\_texture}, \hyperpage{12}
+    \subitem {clear\_renderer}, \hyperpage{13}
+    \subitem {init\_sdl}, \hyperpage{13}
+    \subitem {load\_image}, \hyperpage{13}
+    \subitem {pause}, \hyperpage{14}
+    \subitem {update\_screen}, \hyperpage{14}
+  \item {sprite\_s}, \hyperpage{5}
+
+  \indexspace
+
+  \item {textures\_s}, \hyperpage{5}
+    \subitem {background}, \hyperpage{6}
+
+  \indexspace
+
+  \item {update\_screen}
+    \subitem {sdl2-\/light.c}, \hyperpage{10}
+    \subitem {sdl2-\/light.h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {world\_s}, \hyperpage{6}
+    \subitem {gameover}, \hyperpage{6}
+
+\end{theindex}

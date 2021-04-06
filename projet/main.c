@@ -66,6 +66,7 @@ struct textures_s{
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
     SDL_Texture* sprite;
     SDL_Texture* finish_line;
+    SDL_Texture* meteorites;
 };
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -101,6 +102,7 @@ struct world_s{
 
     sprite_t vaisseau;
     sprite_t finish_line;
+    sprite_t mur;
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
     int vy; /*! Vitesse de deplacement de la ligne d'arrivee et des meteorites*/
 
@@ -154,7 +156,7 @@ void init_data(world_t * world){
 
     init_sprite(&world->vaisseau, (SCREEN_WIDTH-SHIP_SIZE)/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
     init_sprite(&world->finish_line, 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, FINISH_LINE_HEIGHT);
-
+    init_sprite(&world->mur, 0, SCREEN_HEIGHT/2, 3*METEORITE_SIZE, 7*METEORITE_SIZE);
 
     world->vy=INITIAL_SPEED;
     //on n'est pas à la fin du jeu
@@ -204,6 +206,7 @@ int is_game_over(world_t *world){
 
 void update_data(world_t *world){
     world->finish_line.y += world->vy;
+    world->mur.y +=  world->vy;
 }
 
 
@@ -229,19 +232,23 @@ void handle_events(SDL_Event *event,world_t *world){
 
         //si une touche est appuyée
         if(event->type == SDL_KEYDOWN){
-            //si la touche appuyée est 'fleche droite'
+            //si la touche appuyée est 'fleche droite', le vaisseau va vers la droite
             if(event->key.keysym.sym == SDLK_RIGHT){
                 world->vaisseau.x += MOVING_STEP;
             }
+                //si la touche appuyée est 'fleche haut', la vitesse du vaisseau augment
             else if(event->key.keysym.sym == SDLK_UP){
-                world->vaisseau.y -= MOVING_STEP;
+                world->vy++;
             }
+                //si la touche appuyée est 'fleche gauche', le vaisseau va vers la droite
             else if(event->key.keysym.sym == SDLK_LEFT){
                 world->vaisseau.x -= MOVING_STEP;
             }
+                //si la touche appuyée est 'fleche bas', la vitesse du vaisseau diminue
             else if(event->key.keysym.sym == SDLK_DOWN){
-                world->vaisseau.y += MOVING_STEP;
+                world->vy--;
             }
+                //si la touche appuyée est 'ECHAP', le programme s'arrete
             else if(event->key.keysym.sym == SDLK_ESCAPE){
                 world->gameover=1;
             }
@@ -266,6 +273,7 @@ void clean_textures(textures_t *textures){
     clean_texture(textures->background);
     clean_texture(textures->finish_line);
     clean_texture(textures->sprite);
+    clean_texture(textures->meteorites);
 }
 
 
@@ -282,6 +290,7 @@ void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
     textures->sprite = load_image( "ressources/spaceship.bmp",renderer);
     textures->finish_line = load_image( "ressources/finish_line.bmp",renderer);
+    textures->meteorites = load_image( "ressources/meteorite.bmp",renderer);
 }
 
 
@@ -314,6 +323,24 @@ void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite
 }
 
 
+/**
+ * \brief La fonction copie les coordonnees intiales de la 1ere meteorite et ajuste les coordonnees des autres (chaque case du tableau) avant de les afficher
+ * \param renderer le renderer
+ * \param world les données du monde
+ * \param textures les textures
+ * \param sprite[w][h] les meteorites/sprites a afficher
+ */
+void handle_wall(SDL_Renderer *renderer, textures_t *textures, world_t *world, sprite_t temp[world->mur.w/METEORITE_SIZE][world->mur.h/METEORITE_SIZE]){
+    for(int y=0; y<7; y++){
+        for(int x=0; x<3; x++){
+            temp[x][y] = world->mur;
+            temp[x][y].x += x*METEORITE_SIZE;
+            temp[x][y].y -= y*METEORITE_SIZE;
+            apply_sprite(renderer, textures->meteorites, &temp[x][y]);
+
+        }
+    }
+}
 
 
 
@@ -336,6 +363,9 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 
     //application de la texture de la finish_line dans le renderer
     apply_sprite(renderer, textures->finish_line, &world->finish_line);
+
+    sprite_t temp[world->mur.w/METEORITE_SIZE][world->mur.h/METEORITE_SIZE];
+    handle_wall(renderer, textures, world, temp);
 
     // on met à jour l'écran
     update_screen(renderer);
