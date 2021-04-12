@@ -1,0 +1,213 @@
+\hypertarget{data_8h}{}\doxysection{data.\+h File Reference}
+\label{data_8h}\index{data.h@{data.h}}
+
+
+Module d\textquotesingle{}initialisation.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsprite__s}{sprite\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Représentation des parametres du sprite du jeu. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structworld__s}{world\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Représentation du monde du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{data_8h_a5371414b10358aeda7c6bcec8196342f}\label{data_8h_a5371414b10358aeda7c6bcec8196342f}} 
+typedef struct \mbox{\hyperlink{structsprite__s}{sprite\+\_\+s}} \mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Type qui correspond au sprite. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{data_8h_ad55869c5e54f717062ec699d20fa8886}\label{data_8h_ad55869c5e54f717062ec699d20fa8886}} 
+typedef struct \mbox{\hyperlink{structworld__s}{world\+\_\+s}} \mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Type qui correspond aux données du monde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{data_8h_a7edf5248c9929108f571836fb92f204a}{init\+\_\+sprite}} (\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite, int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em La fonction initialise les parametres nécessaires à l\textquotesingle{}affichage graphique du sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_8h_a5676e72ded3c1a993c4c975ef9958288}{init\+\_\+data}} (\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction initialise les données du monde du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_8h_abcbee1dbb5697f9d0de3f737f9c7aafe}{clean\+\_\+data}} (\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction nettoie les données du monde. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_8h_a6c91f82a5ece8b14628159353390adf4}{update\+\_\+data}} (\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction met à jour les données en tenant compte de la physique du monde. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{data_8h_a87c51ee2e71f0707b7c964afc414f556}{is\+\_\+game\+\_\+over}} (\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction indique si le jeu est fini en fonction des données du monde. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_8h_acd08f176ec86e02c69ea2f0524508c4e}{depasse}} (\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite)
+\begin{DoxyCompactList}\small\item\em La fonction teste si le sprite est sorti du cadre de jeu, et replace le sprite si c\textquotesingle{}est le cas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_8h_a81db21d120be8c3d489eeab067f9f15f}{handle\+\_\+sprites\+\_\+collision}} (\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sp1, \mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sp2, int make\+\_\+disappear)
+\begin{DoxyCompactList}\small\item\em La fonction appelle la fonction de detection de collisions entre les sprites sp1 et sp2. Si ils sont en collision, la vitesse du monde devient 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_8h_a242b29f702d42f06f3cdf3843ee7f930}{print\+\_\+sprite}} (\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite)
+\begin{DoxyCompactList}\small\item\em La fonction affiche les coordonnees et la taille du sprite. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{data_8h_aa35f099a7e2fcb62d60f44d7a061f151}{sprites\+\_\+collide}} (\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sp1, \mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sp2)
+\begin{DoxyCompactList}\small\item\em La fonction de detection de collisions entre les sprites sp1 et sp2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module d\textquotesingle{}initialisation. 
+
+\begin{DoxyAuthor}{Author}
+Ludovic Tagnon / Matheo Serrier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+3.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+7 avril 2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{data_8h_abcbee1dbb5697f9d0de3f737f9c7aafe}\label{data_8h_abcbee1dbb5697f9d0de3f737f9c7aafe}} 
+\index{data.h@{data.h}!clean\_data@{clean\_data}}
+\index{clean\_data@{clean\_data}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{clean\_data()}{clean\_data()}}
+{\footnotesize\ttfamily void clean\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction nettoie les données du monde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{data_8h_acd08f176ec86e02c69ea2f0524508c4e}\label{data_8h_acd08f176ec86e02c69ea2f0524508c4e}} 
+\index{data.h@{data.h}!depasse@{depasse}}
+\index{depasse@{depasse}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{depasse()}{depasse()}}
+{\footnotesize\ttfamily void depasse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+La fonction teste si le sprite est sorti du cadre de jeu, et replace le sprite si c\textquotesingle{}est le cas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Le sprite \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{data_8h_a81db21d120be8c3d489eeab067f9f15f}\label{data_8h_a81db21d120be8c3d489eeab067f9f15f}} 
+\index{data.h@{data.h}!handle\_sprites\_collision@{handle\_sprites\_collision}}
+\index{handle\_sprites\_collision@{handle\_sprites\_collision}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{handle\_sprites\_collision()}{handle\_sprites\_collision()}}
+{\footnotesize\ttfamily void handle\+\_\+sprites\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sp1,  }\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sp2,  }\item[{int}]{make\+\_\+disappear }\end{DoxyParamCaption})}
+
+
+
+La fonction appelle la fonction de detection de collisions entre les sprites sp1 et sp2. Si ils sont en collision, la vitesse du monde devient 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+{\em sp1} & Le 1er sprite \\
+\hline
+{\em sp2} & Le 2eme sprite \\
+\hline
+{\em make\+\_\+disappear} & la condition qui fait disparraitre le vaisseau si il est en collision \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{data_8h_a5676e72ded3c1a993c4c975ef9958288}\label{data_8h_a5676e72ded3c1a993c4c975ef9958288}} 
+\index{data.h@{data.h}!init\_data@{init\_data}}
+\index{init\_data@{init\_data}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{init\_data()}{init\_data()}}
+{\footnotesize\ttfamily void init\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise les données du monde du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{data_8h_a7edf5248c9929108f571836fb92f204a}\label{data_8h_a7edf5248c9929108f571836fb92f204a}} 
+\index{data.h@{data.h}!init\_sprite@{init\_sprite}}
+\index{init\_sprite@{init\_sprite}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{init\_sprite()}{init\_sprite()}}
+{\footnotesize\ttfamily void init\+\_\+sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise les parametres nécessaires à l\textquotesingle{}affichage graphique du sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Le sprite \\
+\hline
+{\em x,y} & la position du sprite \\
+\hline
+{\em w,h} & taille du sprite \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{data_8h_a87c51ee2e71f0707b7c964afc414f556}\label{data_8h_a87c51ee2e71f0707b7c964afc414f556}} 
+\index{data.h@{data.h}!is\_game\_over@{is\_game\_over}}
+\index{is\_game\_over@{is\_game\_over}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{is\_game\_over()}{is\_game\_over()}}
+{\footnotesize\ttfamily int is\+\_\+game\+\_\+over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction indique si le jeu est fini en fonction des données du monde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le jeu est fini, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{data_8h_a242b29f702d42f06f3cdf3843ee7f930}\label{data_8h_a242b29f702d42f06f3cdf3843ee7f930}} 
+\index{data.h@{data.h}!print\_sprite@{print\_sprite}}
+\index{print\_sprite@{print\_sprite}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{print\_sprite()}{print\_sprite()}}
+{\footnotesize\ttfamily void print\+\_\+sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+La fonction affiche les coordonnees et la taille du sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Le sprite \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{data_8h_aa35f099a7e2fcb62d60f44d7a061f151}\label{data_8h_aa35f099a7e2fcb62d60f44d7a061f151}} 
+\index{data.h@{data.h}!sprites\_collide@{sprites\_collide}}
+\index{sprites\_collide@{sprites\_collide}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{sprites\_collide()}{sprites\_collide()}}
+{\footnotesize\ttfamily int sprites\+\_\+collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sp1,  }\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sp2 }\end{DoxyParamCaption})}
+
+
+
+La fonction de detection de collisions entre les sprites sp1 et sp2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sp1} & Le 1er sprite \\
+\hline
+{\em sp2} & Le 2eme sprite \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{data_8h_a6c91f82a5ece8b14628159353390adf4}\label{data_8h_a6c91f82a5ece8b14628159353390adf4}} 
+\index{data.h@{data.h}!update\_data@{update\_data}}
+\index{update\_data@{update\_data}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{update\_data()}{update\_data()}}
+{\footnotesize\ttfamily void update\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction met à jour les données en tenant compte de la physique du monde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em les} & données du monde \\
+\hline
+\end{DoxyParams}

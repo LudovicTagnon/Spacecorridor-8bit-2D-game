@@ -1,0 +1,175 @@
+\begin{theindex}
+
+  \item {apply\_background}
+    \subitem {graphics.c}, \hyperpage{12}
+    \subitem {graphics.h}, \hyperpage{18}
+  \item {apply\_sprite}
+    \subitem {graphics.c}, \hyperpage{13}
+    \subitem {graphics.h}, \hyperpage{18}
+  \item {apply\_texture}
+    \subitem {sdl2-\/light.c}, \hyperpage{22}
+    \subitem {sdl2-\/light.h}, \hyperpage{26}
+
+  \indexspace
+
+  \item {background}
+    \subitem {textures\_s}, \hyperpage{6}
+
+  \indexspace
+
+  \item {clean}
+    \subitem {graphics.c}, \hyperpage{13}
+    \subitem {graphics.h}, \hyperpage{18}
+  \item {clean\_data}
+    \subitem {data.h}, \hyperpage{8}
+  \item {clean\_sdl}
+    \subitem {sdl2-\/light.c}, \hyperpage{23}
+    \subitem {sdl2-\/light.h}, \hyperpage{26}
+  \item {clean\_texture}
+    \subitem {sdl2-\/light.c}, \hyperpage{23}
+    \subitem {sdl2-\/light.h}, \hyperpage{27}
+  \item {clean\_textures}
+    \subitem {graphics.c}, \hyperpage{13}
+    \subitem {graphics.h}, \hyperpage{19}
+  \item {clear\_renderer}
+    \subitem {sdl2-\/light.c}, \hyperpage{23}
+    \subitem {sdl2-\/light.h}, \hyperpage{27}
+
+  \indexspace
+
+  \item {data.c}, \hyperpage{7}
+  \item {data.h}, \hyperpage{7}
+    \subitem {clean\_data}, \hyperpage{8}
+    \subitem {depasse}, \hyperpage{9}
+    \subitem {handle\_sprites\_collision}, \hyperpage{9}
+    \subitem {init\_data}, \hyperpage{9}
+    \subitem {init\_sprite}, \hyperpage{10}
+    \subitem {is\_game\_over}, \hyperpage{10}
+    \subitem {print\_sprite}, \hyperpage{10}
+    \subitem {sprites\_collide}, \hyperpage{11}
+    \subitem {update\_data}, \hyperpage{11}
+  \item {depasse}
+    \subitem {data.h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {gameover}
+    \subitem {world\_s}, \hyperpage{6}
+  \item {graphics.c}, \hyperpage{11}
+    \subitem {apply\_background}, \hyperpage{12}
+    \subitem {apply\_sprite}, \hyperpage{13}
+    \subitem {clean}, \hyperpage{13}
+    \subitem {clean\_textures}, \hyperpage{13}
+    \subitem {handle\_events}, \hyperpage{14}
+    \subitem {handle\_wall}, \hyperpage{14}
+    \subitem {init}, \hyperpage{14}
+    \subitem {init\_textures}, \hyperpage{16}
+    \subitem {refresh\_graphics}, \hyperpage{16}
+  \item {graphics.h}, \hyperpage{16}
+    \subitem {apply\_background}, \hyperpage{18}
+    \subitem {apply\_sprite}, \hyperpage{18}
+    \subitem {clean}, \hyperpage{18}
+    \subitem {clean\_textures}, \hyperpage{19}
+    \subitem {handle\_events}, \hyperpage{19}
+    \subitem {handle\_wall}, \hyperpage{19}
+    \subitem {init}, \hyperpage{20}
+    \subitem {init\_textures}, \hyperpage{20}
+    \subitem {refresh\_graphics}, \hyperpage{20}
+
+  \indexspace
+
+  \item {handle\_events}
+    \subitem {graphics.c}, \hyperpage{14}
+    \subitem {graphics.h}, \hyperpage{19}
+  \item {handle\_sprites\_collision}
+    \subitem {data.h}, \hyperpage{9}
+  \item {handle\_wall}
+    \subitem {graphics.c}, \hyperpage{14}
+    \subitem {graphics.h}, \hyperpage{19}
+
+  \indexspace
+
+  \item {init}
+    \subitem {graphics.c}, \hyperpage{14}
+    \subitem {graphics.h}, \hyperpage{20}
+  \item {init\_data}
+    \subitem {data.h}, \hyperpage{9}
+  \item {init\_sdl}
+    \subitem {sdl2-\/light.c}, \hyperpage{24}
+    \subitem {sdl2-\/light.h}, \hyperpage{27}
+  \item {init\_sprite}
+    \subitem {data.h}, \hyperpage{10}
+  \item {init\_textures}
+    \subitem {graphics.c}, \hyperpage{16}
+    \subitem {graphics.h}, \hyperpage{20}
+  \item {is\_game\_over}
+    \subitem {data.h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {load\_image}
+    \subitem {sdl2-\/light.c}, \hyperpage{24}
+    \subitem {sdl2-\/light.h}, \hyperpage{28}
+
+  \indexspace
+
+  \item {main.c}, \hyperpage{21}
+
+  \indexspace
+
+  \item {pause}
+    \subitem {sdl2-\/light.c}, \hyperpage{24}
+    \subitem {sdl2-\/light.h}, \hyperpage{28}
+  \item {print\_sprite}
+    \subitem {data.h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {refresh\_graphics}
+    \subitem {graphics.c}, \hyperpage{16}
+    \subitem {graphics.h}, \hyperpage{20}
+
+  \indexspace
+
+  \item {sdl2-\/light.c}, \hyperpage{21}
+    \subitem {apply\_texture}, \hyperpage{22}
+    \subitem {clean\_sdl}, \hyperpage{23}
+    \subitem {clean\_texture}, \hyperpage{23}
+    \subitem {clear\_renderer}, \hyperpage{23}
+    \subitem {init\_sdl}, \hyperpage{24}
+    \subitem {load\_image}, \hyperpage{24}
+    \subitem {pause}, \hyperpage{24}
+    \subitem {update\_screen}, \hyperpage{25}
+  \item {sdl2-\/light.h}, \hyperpage{25}
+    \subitem {apply\_texture}, \hyperpage{26}
+    \subitem {clean\_sdl}, \hyperpage{26}
+    \subitem {clean\_texture}, \hyperpage{27}
+    \subitem {clear\_renderer}, \hyperpage{27}
+    \subitem {init\_sdl}, \hyperpage{27}
+    \subitem {load\_image}, \hyperpage{28}
+    \subitem {pause}, \hyperpage{28}
+    \subitem {update\_screen}, \hyperpage{28}
+  \item {sprite\_s}, \hyperpage{5}
+  \item {sprites\_collide}
+    \subitem {data.h}, \hyperpage{11}
+
+  \indexspace
+
+  \item {tests.c}, \hyperpage{29}
+  \item {textures\_s}, \hyperpage{5}
+    \subitem {background}, \hyperpage{6}
+
+  \indexspace
+
+  \item {update\_data}
+    \subitem {data.h}, \hyperpage{11}
+  \item {update\_screen}
+    \subitem {sdl2-\/light.c}, \hyperpage{25}
+    \subitem {sdl2-\/light.h}, \hyperpage{28}
+
+  \indexspace
+
+  \item {world\_s}, \hyperpage{6}
+    \subitem {gameover}, \hyperpage{6}
+
+\end{theindex}
