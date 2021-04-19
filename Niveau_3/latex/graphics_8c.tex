@@ -1,0 +1,217 @@
+\hypertarget{graphics_8c}{}\doxysection{graphics.\+c File Reference}
+\label{graphics_8c}\index{graphics.c@{graphics.c}}
+
+
+Module d\textquotesingle{}affichage des elements du jeu.  
+
+
+{\ttfamily \#include \char`\"{}sdl2-\/light.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}constantes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\newline
+Include dependency graph for graphics.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{graphics_8c_a03798323fe88fdd815fa2cb29b79f972}{init\+\_\+textures}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$textures)
+\begin{DoxyCompactList}\small\item\em La fonction initialise les textures nécessaires à l\textquotesingle{}affichage graphique du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8c_a9c0e87d6a96e4bb78e7ff9509498c713}{init}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, \mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$textures, \mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em fonction qui initialise le jeu\+: initialisation de la partie graphique (S\+DL), chargement des textures, initialisation des données \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8c_a47508a80056a626ded3e02f0690fa432}{clean\+\_\+textures}} (\mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$textures)
+\begin{DoxyCompactList}\small\item\em La fonction nettoie les textures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8c_aea7db68b68a4dffee7ecefff565f988f}{apply\+\_\+background}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran de jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8c_a1d3be1f25017a0acd88a72bafbb70730}{apply\+\_\+sprite}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture, \mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture du sprite sur le renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8c_ad12af8854beb5662ff807601e38db23e}{handle\+\_\+wall}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$textures, \mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} temp\mbox{[}world-\/$>$mur.\+w/M\+E\+T\+E\+O\+R\+I\+T\+E\+\_\+\+S\+I\+ZE\mbox{]}\mbox{[}world-\/$>$mur.\+h/M\+E\+T\+E\+O\+R\+I\+T\+E\+\_\+\+S\+I\+ZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em La fonction copie les coordonnees intiales de la 1ere meteorite et ajuste les coordonnees des autres (chaque case du tableau) avant de les afficher. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8c_ad463e9558ab20ad44fa6299593f251bc}{refresh\+\_\+graphics}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$textures)
+\begin{DoxyCompactList}\small\item\em La fonction rafraichit l\textquotesingle{}écran en fonction de l\textquotesingle{}état des données du monde. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8c_a7f417770b38ecfb6688b0726fd34dd92}{clean}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$textures, \mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em fonction qui nettoie le jeu\+: nettoyage de la partie graphique (S\+DL), nettoyage des textures, nettoyage des données \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8c_a947b9f8960b2202788f43c71fbaa9d67}{handle\+\_\+events}} (S\+D\+L\+\_\+\+Event $\ast$event, \mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em La fonction gère les évènements ayant eu lieu et qui n\textquotesingle{}ont pas encore été traités. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module d\textquotesingle{}affichage des elements du jeu. 
+
+\begin{DoxyAuthor}{Author}
+Ludovic Tagnon / Matheo Serrier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+3.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+7 avril 2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{graphics_8c_aea7db68b68a4dffee7ecefff565f988f}\label{graphics_8c_aea7db68b68a4dffee7ecefff565f988f}} 
+\index{graphics.c@{graphics.c}!apply\_background@{apply\_background}}
+\index{apply\_background@{apply\_background}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{apply\_background()}{apply\_background()}}
+{\footnotesize\ttfamily void apply\+\_\+background (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em texture} & la texture liée au fond \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphics_8c_a1d3be1f25017a0acd88a72bafbb70730}\label{graphics_8c_a1d3be1f25017a0acd88a72bafbb70730}} 
+\index{graphics.c@{graphics.c}!apply\_sprite@{apply\_sprite}}
+\index{apply\_sprite@{apply\_sprite}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{apply\_sprite()}{apply\_sprite()}}
+{\footnotesize\ttfamily void apply\+\_\+sprite (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+La fonction applique la texture du sprite sur le renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em texture} & la texture liée au fond \\
+\hline
+{\em sprite} & le sprite a afficher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphics_8c_a7f417770b38ecfb6688b0726fd34dd92}\label{graphics_8c_a7f417770b38ecfb6688b0726fd34dd92}} 
+\index{graphics.c@{graphics.c}!clean@{clean}}
+\index{clean@{clean}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{clean()}{clean()}}
+{\footnotesize\ttfamily void clean (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$}]{textures,  }\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+fonction qui nettoie le jeu\+: nettoyage de la partie graphique (S\+DL), nettoyage des textures, nettoyage des données 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & la fenêtre du jeu \\
+\hline
+{\em renderer} & le renderer \\
+\hline
+{\em textures} & les textures \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphics_8c_a47508a80056a626ded3e02f0690fa432}\label{graphics_8c_a47508a80056a626ded3e02f0690fa432}} 
+\index{graphics.c@{graphics.c}!clean\_textures@{clean\_textures}}
+\index{clean\_textures@{clean\_textures}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{clean\_textures()}{clean\_textures()}}
+{\footnotesize\ttfamily void clean\+\_\+textures (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$}]{textures }\end{DoxyParamCaption})}
+
+
+
+La fonction nettoie les textures. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em textures} & les textures \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphics_8c_a947b9f8960b2202788f43c71fbaa9d67}\label{graphics_8c_a947b9f8960b2202788f43c71fbaa9d67}} 
+\index{graphics.c@{graphics.c}!handle\_events@{handle\_events}}
+\index{handle\_events@{handle\_events}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{handle\_events()}{handle\_events()}}
+{\footnotesize\ttfamily void handle\+\_\+events (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction gère les évènements ayant eu lieu et qui n\textquotesingle{}ont pas encore été traités. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & paramètre qui contient les événements \\
+\hline
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphics_8c_ad12af8854beb5662ff807601e38db23e}\label{graphics_8c_ad12af8854beb5662ff807601e38db23e}} 
+\index{graphics.c@{graphics.c}!handle\_wall@{handle\_wall}}
+\index{handle\_wall@{handle\_wall}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{handle\_wall()}{handle\_wall()}}
+{\footnotesize\ttfamily void handle\+\_\+wall (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$}]{textures,  }\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{data_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}}}]{temp\mbox{[}world-\/$>$mur.\+w/\+M\+E\+T\+E\+O\+R\+I\+T\+E\+\_\+\+S\+I\+Z\+E\mbox{]}\mbox{[}world-\/$>$mur.\+h/\+M\+E\+T\+E\+O\+R\+I\+T\+E\+\_\+\+S\+I\+Z\+E\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+La fonction copie les coordonnees intiales de la 1ere meteorite et ajuste les coordonnees des autres (chaque case du tableau) avant de les afficher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em world} & les données du monde \\
+\hline
+{\em textures} & les textures \\
+\hline
+{\em sprite\mbox{[}w\mbox{]}\mbox{[}h\mbox{]}} & les meteorites/sprites a afficher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphics_8c_a9c0e87d6a96e4bb78e7ff9509498c713}\label{graphics_8c_a9c0e87d6a96e4bb78e7ff9509498c713}} 
+\index{graphics.c@{graphics.c}!init@{init}}
+\index{init@{init}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{\mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$}]{textures,  }\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+fonction qui initialise le jeu\+: initialisation de la partie graphique (S\+DL), chargement des textures, initialisation des données 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & la fenêtre du jeu \\
+\hline
+{\em renderer} & le renderer \\
+\hline
+{\em textures} & les textures \\
+\hline
+{\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphics_8c_a03798323fe88fdd815fa2cb29b79f972}\label{graphics_8c_a03798323fe88fdd815fa2cb29b79f972}} 
+\index{graphics.c@{graphics.c}!init\_textures@{init\_textures}}
+\index{init\_textures@{init\_textures}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{init\_textures()}{init\_textures()}}
+{\footnotesize\ttfamily void init\+\_\+textures (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$}]{textures }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise les textures nécessaires à l\textquotesingle{}affichage graphique du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen} & la surface correspondant à l\textquotesingle{}écran de jeu \\
+\hline
+{\em textures} & les textures du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graphics_8c_ad463e9558ab20ad44fa6299593f251bc}\label{graphics_8c_ad463e9558ab20ad44fa6299593f251bc}} 
+\index{graphics.c@{graphics.c}!refresh\_graphics@{refresh\_graphics}}
+\index{refresh\_graphics@{refresh\_graphics}!graphics.c@{graphics.c}}
+\doxysubsubsection{\texorpdfstring{refresh\_graphics()}{refresh\_graphics()}}
+{\footnotesize\ttfamily void refresh\+\_\+graphics (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{data_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{graphics_8h_ae642a1d3f0220525d958c1723e5a6c6c}{textures\+\_\+t}} $\ast$}]{textures }\end{DoxyParamCaption})}
+
+
+
+La fonction rafraichit l\textquotesingle{}écran en fonction de l\textquotesingle{}état des données du monde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer lié à l\textquotesingle{}écran de jeu \\
+\hline
+{\em world} & les données du monde \\
+\hline
+{\em textures} & les textures \\
+\hline
+\end{DoxyParams}
