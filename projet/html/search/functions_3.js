@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['init_59',['init',['../main_8c.html#a9c0e87d6a96e4bb78e7ff9509498c713',1,'main.c']]],
-  ['init_5fdata_60',['init_data',['../main_8c.html#a5676e72ded3c1a993c4c975ef9958288',1,'main.c']]],
-  ['init_5fsdl_61',['init_sdl',['../sdl2-light_8c.html#a7307299b4ef47feaa1a4e95341a04c7a',1,'init_sdl(SDL_Window **window, SDL_Renderer **renderer, int width, int height):&#160;sdl2-light.c'],['../sdl2-light_8h.html#a7307299b4ef47feaa1a4e95341a04c7a',1,'init_sdl(SDL_Window **window, SDL_Renderer **renderer, int width, int height):&#160;sdl2-light.c']]],
-  ['init_5fsprite_62',['init_sprite',['../main_8c.html#a7edf5248c9929108f571836fb92f204a',1,'main.c']]],
-  ['init_5ftextures_63',['init_textures',['../main_8c.html#a03798323fe88fdd815fa2cb29b79f972',1,'main.c']]],
-  ['is_5fgame_5fover_64',['is_game_over',['../main_8c.html#a87c51ee2e71f0707b7c964afc414f556',1,'main.c']]]
+  ['handle_5fevents_64',['handle_events',['../graphics_8c.html#a947b9f8960b2202788f43c71fbaa9d67',1,'handle_events(SDL_Event *event, world_t *world):&#160;graphics.c'],['../graphics_8h.html#a947b9f8960b2202788f43c71fbaa9d67',1,'handle_events(SDL_Event *event, world_t *world):&#160;graphics.c']]],
+  ['handle_5fsprites_5fcollision_65',['handle_sprites_collision',['../data_8c.html#a81db21d120be8c3d489eeab067f9f15f',1,'handle_sprites_collision(world_t *world, sprite_t *sp1, sprite_t *sp2, int make_disappear):&#160;data.c'],['../data_8h.html#a81db21d120be8c3d489eeab067f9f15f',1,'handle_sprites_collision(world_t *world, sprite_t *sp1, sprite_t *sp2, int make_disappear):&#160;data.c']]],
+  ['handle_5fwall_66',['handle_wall',['../graphics_8c.html#ad12af8854beb5662ff807601e38db23e',1,'handle_wall(SDL_Renderer *renderer, textures_t *textures, world_t *world, sprite_t temp[world-&gt;mur.w/METEORITE_SIZE][world-&gt;mur.h/METEORITE_SIZE]):&#160;graphics.c'],['../graphics_8h.html#ad12af8854beb5662ff807601e38db23e',1,'handle_wall(SDL_Renderer *renderer, textures_t *textures, world_t *world, sprite_t temp[world-&gt;mur.w/METEORITE_SIZE][world-&gt;mur.h/METEORITE_SIZE]):&#160;graphics.c']]]
 ];

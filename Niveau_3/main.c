@@ -21,7 +21,7 @@ int main( int argc, char* args[] )
 {
     SDL_Event event;
     world_t world;
-    textures_t textures;
+    resources_t textures;
     SDL_Renderer *renderer;
     SDL_Window *window;
 
